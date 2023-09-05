@@ -18,7 +18,7 @@
     <v-main>
       <v-row dense>
         <v-col cols="12">
-          <v-sheet width="100%" height="100" color="blue-darken-3">
+          <v-sheet width="100%" height="100" color="#176B87">
             <v-container class="pt-6">
               <h1>Entrar</h1>
             </v-container>

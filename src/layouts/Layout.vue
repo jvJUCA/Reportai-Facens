@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <AppBar/>
-      <slot></slot>
+    
   </v-app>
 </template>
 
