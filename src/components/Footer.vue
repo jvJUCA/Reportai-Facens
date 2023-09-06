@@ -1,6 +1,6 @@
 <template>
 <v-layout>
-  <v-footer class="footer text-center d-flex flex-column">
+  <v-footer class="footer text-center d-flex flex-column ">
     <div>desenvolvido por C&C</div>
   </v-footer>
   </v-layout>
