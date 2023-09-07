@@ -29,10 +29,6 @@
 
 🔹 [Informações Extras](#licença)
 
-...
-
-Insira os tópicos do README em links para facilitar a navegação do leitor
-
 ## Descrição do projeto
 	Um site que busca aproximar os alunos aos executivos de uma instituição acadêmica, por meio de feedbacks que possibilitam sugerir alterações ou correções dentro da própria instituição.
 
