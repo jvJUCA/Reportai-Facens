@@ -5,7 +5,7 @@
 ## Tópicos
 🔹 [Descrição do projeto](#descrição-do-projeto)
 
-🔹 [Funcionalidades](#funcionalidades)
+🔹 [Funcionalidades](#funcionalidades-%EF%B8%8F)
 
 🔹 [Distribuição](#distribuição)
 
@@ -15,13 +15,11 @@
 
 🔹 [Testes realizados](#testes-realizados)
 
-🔹 [Banco de Dados](#banco-de-dados-)
+🔹 [Banco de Dados](#banco-de-dados-%EF%B8%8F)
 
-🔹 [Linguagens, dependências e libs utilizadas](#linguagens,-dependências-e-libs-utilizadas)
+🔹 [Linguagens, dependências e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-)
 
-🔹 [Novas Recursos](#novos-recursos)
-
-🔹 [Resolvendo problemas](#resolvendo-problemas)
+🔹 [Resolvendo problemas](#recursos-inseridos-)
 
 🔹 [Recursos inseridos](#recursos-de-inseridos-)
 
@@ -71,7 +69,7 @@ Liste as tecnologias utilizadas no projeto que não forem reconhecidas pelo Gith
 ## Resolvendo Problemas 
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
 
-## Recursos de inseridos 🧰
+## Recursos inseridos 🧰
 Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação, insira fotos da tela do app.
 
 📝 Tarefa 1
