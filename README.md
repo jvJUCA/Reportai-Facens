@@ -9,7 +9,7 @@
 
 🔹 [Distribuição](#distribuição)
 
-🔹 [Pré requisitos](#prérequisito)
+🔹 [Pré requisitos](pré-requisitos-%EF%B8%8F)
 
 🔹 [Como rodar a aplicação](#como-rodar-a-aplicação)
 
