@@ -21,7 +21,7 @@
 
 🔹 [Resolvendo problemas](#recursos-inseridos-)
 
-🔹 [Recursos inseridos](#recursos-de-inseridos-)
+🔹 [Recursos inseridos](#recursos-inseridos-)
 
 🔹 [Desenvolvedores/Contribuintes](#desenvolvedorescontribuintes)
 
