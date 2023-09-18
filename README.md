@@ -17,7 +17,7 @@
 
 🔹 [Banco de Dados](#banco-de-dados-%EF%B8%8F)
 
-🔹 [Linguagens, dependências e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-)
+🔹 [Linguagens e Frameworks utilizados](#linguagens-e-frameworks-utilizados-)
 
 🔹 [Resolvendo problemas](#recursos-inseridos-)
 
