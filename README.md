@@ -54,46 +54,17 @@ https://reportai-facens.vercel.app/
  ![LINUX](https://img.shields.io/badge/LINUX-ffffff?style=for-the-badge&logo=linux&logoColor=black)
  ![WEB_BROWSER](https://img.shields.io/badge/Browser-079ded?style=for-the-badge&logo=web&logoColor=white)
 
- ## Dependências e libs utilizados.
-
- - [Vue.js](https://vuejs.org/): O framework JavaScript para construir interfaces de usuário.
- - [Vue Router](https://router.vuejs.org/): Roteador oficial para gerenciar rotas em aplicativos Vue.js.
- - [Vuetify](https://vuetifyjs.com/en/): Uma estrutura de design de componentes Vue para criar aplicativos bonitos e acessíveis.
- - [Vuex](https://vuex.vuejs.org/): Gerenciamento de estado centralizado para aplicativos Vue.js.
-
- ## Dependências de Desenvolvimento
-
-- [@babel/core](https://babeljs.io/): Compilador JavaScript para transformar o código ES6+ em ES5 compatível com navegadores.
-- [@babel/eslint-parser](https://babeljs.io/): Parser do Babel para integração com ESLint.
-- [@vue/cli-plugin-babel](https://cli.vuejs.org/guide/plugins-and-presets.html#babel): Plugin Vue CLI para compilação de código usando Babel.
-- [@vue/cli-plugin-eslint](https://cli.vuejs.org/guide/plugins-and-presets.html#eslint): Plugin Vue CLI para linting de código usando ESLint.
-- [@vue/cli-plugin-router](https://cli.vuejs.org/guide/plugins-and-presets.html#router): Plugin Vue CLI para configuração de rotas usando Vue Router.
-- [@vue/cli-plugin-vuex](https://cli.vuejs.org/guide/plugins-and-presets.html#vuex): Plugin Vue CLI para configuração de gerenciamento de estado usando Vuex.
-- [@vue/cli-service](https://cli.vuejs.org/guide/cli-service.html): Utilitário de serviço Vue CLI para compilar e servir projetos Vue.js.
-- [ESLint](https://eslint.org/): Ferramenta de linting para manter seu código JavaScript consistente.
-- [eslint-plugin-vue](https://eslint.vuejs.org/): Plugin ESLint para regras específicas de Vue.js.
-## Como Usar
-
-Certifique-se de instalar todas as dependências usando o comando apropriado, por exemplo:
-
-bash
-
-npm install
-
-
 <strong>Versão do Android;</strong>
 - Android 7.0 Nougat ou superior.
-
-- SDK;
 
 Aparelho utilizado para testes.
 
 - Desktop:
   
   Dell Inc. XPS 8930
-
+ 
 - Sistema Operacional: Windows, Linux, MacOS, IOS, Android.
-- Navegador Chrome, Edge ou outros.
+- Navegador Web:  Chrome, Edge ou outros.
 - Conexão à internet velocidade de 5Mbps ou superior
 
 ## Como rodar a aplicação
@@ -106,17 +77,40 @@ Utilização de imagens e descrição do qeu foi testado.
 ## Banco de Dados 🗂️
 Caso tenha acesso a uma base de dados, deixe a descrição do arquivo (json, csv, xml e etc).
 
-## Linguagens, dependencias e libs utilizadas 📚
-![VUE](https://img.shields.io/badge/Vue-3DDC84?style=for-the-badge&logo=vue.js&logoColor=white)
-![VUETIFY](https://img.shields.io/badge/Vuetify%203-3DDC84?style=for-the-badge&logo=vue.js&logoColor=white)
+## Linguagens e Frameworks utilizados 📚
 ![HTML5](https://img.shields.io/badge/HTML5-ff4500?style=for-the-badge&logo=html5&logoColor=white)
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-f7ef00?style=for-the-badge&logo=JavaScript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-2803fc?style=for-the-badge&logo=CSS3&logoColor=white)
+![FIREBASE](https://img.shields.io/badge/Firebase-fcc883?style=for-the-badge&logo=Firebase&logoColor=black)
+
+## Dependências e libs utilizados.
+
+- [Vue.js](https://vuejs.org/): O framework JavaScript para construir interfaces de usuário.
+- [Vue Router](https://router.vuejs.org/): Roteador oficial para gerenciar rotas em aplicativos Vue.js.
+- [Vuetify](https://vuetifyjs.com/en/): Uma estrutura de design de componentes Vue para criar aplicativos bonitos e acessíveis.
+- [Vuex](https://vuex.vuejs.org/): Gerenciamento de estado centralizado para aplicativos Vue.js.
+
+  ## Dependências de Desenvolvimento
+
+- [@babel/core](https://babeljs.io/): Compilador JavaScript para transformar o código ES6+ em ES5 compatível com navegadores.
+- [@babel/eslint-parser](https://babeljs.io/): Parser do Babel para integração com ESLint.
+- [@vue/cli-plugin-babel](https://cli.vuejs.org/guide/plugins-and-presets.html#babel): Plugin Vue CLI para compilação de código usando Babel.
+- [@vue/cli-plugin-eslint](https://cli.vuejs.org/guide/plugins-and-presets.html#eslint): Plugin Vue CLI para linting de código usando ESLint.
+- [@vue/cli-plugin-router](https://cli.vuejs.org/guide/plugins-and-presets.html#router): Plugin Vue CLI para configuração de rotas usando Vue Router.
+- [@vue/cli-plugin-vuex](https://cli.vuejs.org/guide/plugins-and-presets.html#vuex): Plugin Vue CLI para configuração de gerenciamento de estado usando Vuex.
+- [@vue/cli-service](https://cli.vuejs.org/guide/cli-service.html): Utilitário de serviço Vue CLI para compilar e servir projetos Vue.js.
+- [ESLint](https://eslint.org/): Ferramenta de linting para manter seu código JavaScript consistente.
+- [eslint-plugin-vue](https://eslint.vuejs.org/): Plugin ESLint para regras específicas de Vue.js.
+  
+## Como Usar
+
+Certifique-se de instalar todas as dependências usando o comando apropriado, por exemplo:
+```
+npm install
+npm run serve
+```
 
 
-
-XML
-...
-Liste as tecnologias utilizadas no projeto que não forem reconhecidas pelo Github
 
 ## Resolvendo Problemas 
 Em issues foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos.
