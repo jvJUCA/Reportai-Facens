@@ -1,4 +1,4 @@
-# Reportai-Facens | C&C Group | AS030TSN4
+# REPORTAI-Facens | C&C Group | AS030TSN4
 ## Versão: 1.0 
 ## Status do Projeto: ⚠️ Espera
 
@@ -41,18 +41,64 @@
 ✔️ Funcionalidade 4
 
 ## Distribuição
-Link para teste da versão disponibilizada.
+Link para teste da versão disponibilizada: 
 
 https://reportai-facens.vercel.app/
 
 ## Pré-requisitos ⚠️    
-Versão do Android; 
-SDK; 
+
+![ANDROID](https://img.shields.io/badge/android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+ ![IOS](https://img.shields.io/badge/IOS-ffffff?style=for-the-badge&logo=apple&logoColor=black)
+ ![MACOS](https://img.shields.io/badge/Mac%20OS-ffffff?style=for-the-badge&logo=apple&logoColor=black)
+ ![WINDOWS](https://img.shields.io/badge/WINDOWS-03a9fc?style=for-the-badge&logo=windows&logoColor=white)
+ ![LINUX](https://img.shields.io/badge/LINUX-ffffff?style=for-the-badge&logo=linux&logoColor=black)
+ ![WEB_BROWSER](https://img.shields.io/badge/Browser-079ded?style=for-the-badge&logo=web&logoColor=white)
+
+ ## Dependências e libs utilizados.
+
+ - [Vue.js](https://vuejs.org/): O framework JavaScript para construir interfaces de usuário.
+ - [Vue Router](https://router.vuejs.org/): Roteador oficial para gerenciar rotas em aplicativos Vue.js.
+ - [Vuetify](https://vuetifyjs.com/en/): Uma estrutura de design de componentes Vue para criar aplicativos bonitos e acessíveis.
+ - [Vuex](https://vuex.vuejs.org/): Gerenciamento de estado centralizado para aplicativos Vue.js.
+
+ ## Dependências de Desenvolvimento
+
+- [@babel/core](https://babeljs.io/): Compilador JavaScript para transformar o código ES6+ em ES5 compatível com navegadores.
+- [@babel/eslint-parser](https://babeljs.io/): Parser do Babel para integração com ESLint.
+- [@vue/cli-plugin-babel](https://cli.vuejs.org/guide/plugins-and-presets.html#babel): Plugin Vue CLI para compilação de código usando Babel.
+- [@vue/cli-plugin-eslint](https://cli.vuejs.org/guide/plugins-and-presets.html#eslint): Plugin Vue CLI para linting de código usando ESLint.
+- [@vue/cli-plugin-router](https://cli.vuejs.org/guide/plugins-and-presets.html#router): Plugin Vue CLI para configuração de rotas usando Vue Router.
+- [@vue/cli-plugin-vuex](https://cli.vuejs.org/guide/plugins-and-presets.html#vuex): Plugin Vue CLI para configuração de gerenciamento de estado usando Vuex.
+- [@vue/cli-service](https://cli.vuejs.org/guide/cli-service.html): Utilitário de serviço Vue CLI para compilar e servir projetos Vue.js.
+- [ESLint](https://eslint.org/): Ferramenta de linting para manter seu código JavaScript consistente.
+- [eslint-plugin-vue](https://eslint.vuejs.org/): Plugin ESLint para regras específicas de Vue.js.
+## Como Usar
+
+Certifique-se de instalar todas as dependências usando o comando apropriado, por exemplo:
+
+bash
+
+npm install
+
+
+<strong>Versão do Android;</strong>
+- Android 7.0 Nougat ou superior.
+
+- SDK;
+
 Aparelho utilizado para testes.
-- Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação, para rodar o projeto.
+
+- Desktop:
+  
+  Dell Inc. XPS 8930
+
+- Sistema Operacional: Windows, Linux, MacOS, IOS, Android.
+- Navegador Chrome, Edge ou outros.
+- Conexão à internet velocidade de 5Mbps ou superior
 
 ## Como rodar a aplicação
 Explicação de como se deve utilizar o projeto.
+Execute em um navegador de preferência em sua versão mais atualizada, o link disponibilizado do projeto.
 
 ## Testes realizados
 Utilização de imagens e descrição do qeu foi testado.
@@ -61,8 +107,12 @@ Utilização de imagens e descrição do qeu foi testado.
 Caso tenha acesso a uma base de dados, deixe a descrição do arquivo (json, csv, xml e etc).
 
 ## Linguagens, dependencias e libs utilizadas 📚
-![VUE](https://img.shields.io/badge/VUE-3DDC84?style=for-the-badge&logo=vue&logoColor=white)
+![VUE](https://img.shields.io/badge/Vue-3DDC84?style=for-the-badge&logo=vue.js&logoColor=white)
+![VUETIFY](https://img.shields.io/badge/Vuetify%203-3DDC84?style=for-the-badge&logo=vue.js&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-ff4500?style=for-the-badge&logo=html5&logoColor=white)
+![JAVASCRIPT](https://img.shields.io/badge/JavaScript-f7ef00?style=for-the-badge&logo=JavaScript&logoColor=black)
+
+
 
 XML
 ...
@@ -81,7 +131,7 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 📝 Tarefa 3
 
 ## Desenvolvedores/Contribuintes:
-- Daniel Ohata
+- Daniel Ohata;
 - Giovanni Nogueira;
 - João Vitor Amaral Franzoni;
 - João de Almeida Sobrinho Souza;
@@ -89,6 +139,6 @@ Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementada
 - Kesia Rodrigues.
 
 ## Licença
-The MIT License (MIT)
+The MIT License (MIT) 
 
 ## Copyright ©️ 2023 - REPORTAÍ
