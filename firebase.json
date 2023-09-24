@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "reportaifacens",
     "public": "public",
     "ignore": [
       "firebase.json",
