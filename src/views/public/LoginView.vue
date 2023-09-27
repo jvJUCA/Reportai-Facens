@@ -1,6 +1,8 @@
 <template app>
   <AppBar />
-   <!-- Login design here, seus cabeça. -->
+
+  <v-text-field rounded="6" label="Insira seu RA"></v-text-field>
+
   <FooterLayout />
 </template>
 
@@ -18,7 +20,7 @@ export default {
 </script>
 
 <style>
-#app{
+#app {
   background-color: rgb(16, 32, 61);
 }
 </style>
