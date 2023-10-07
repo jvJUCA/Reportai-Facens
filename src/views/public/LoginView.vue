@@ -14,7 +14,7 @@
         "
         v-model="email"
         :readonly="loading"
-        :rules="[rules.required, rules.email]"
+        :rules="[rules.requiredEmail, rules.email]"
         class="mb-2 centered-input"
         clearable
         label="Email"
@@ -28,7 +28,7 @@
         v-model="password"
         class="centered-input2"
         :readonly="loading"
-        :rules="[rules.required]"
+        :rules="[rules.requiredPassword]"
         :type="show1 ? 'text' : 'password'"
         name="input-10-1"
         clearable
@@ -108,15 +108,16 @@ export default {
     show2: true,
     password: null,
     email: "",
-      rules: {
-        required: (value) => !!value || "Required.",
-        counter: (value) => value.length <= 20 || "Max 20 characters",
-        email: (value) => {
-          const pattern =
-            /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || "Invalid e-mail.";
-        },
+    rules: {
+      requiredEmail: (value) => !!value || "Email não informado!",
+      requiredPassword: (value) => !!value || "Senha não informada!",
+      counter: (value) => value.length <= 20 || "Max 20 characters",
+      email: (value) => {
+        const pattern =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return pattern.test(value) || "E-mail invalido!";
       },
+    },
   }),
 
   methods: {
