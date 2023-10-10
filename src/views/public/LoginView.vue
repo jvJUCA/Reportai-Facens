@@ -147,15 +147,10 @@ export default {
 .v-text-field.centered-input .v-label {
   left: 36% !important;
   transform: translateX(-50%);
-  &.v-label--active {
-    transform: translateY(-18px) scale(0.75) translateX(-50%);
-  }
 }
 .v-text-field.centered-input2 .v-label {
   left: 35% !important;
   transform: translateX(-50%);
-  &.v-label--active {
-    transform: translateY(-18px) scale(0.75) translateX(-50%);
-  }
 }
 </style>
+
