@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <AppBar/>
-    
   </v-app>
 </template>
 
@@ -13,6 +12,5 @@ export default {
   components: {
     AppBar,
   },
-  // Outras configurações do componente
 };
 </script>

@@ -77,7 +77,7 @@ import AppBar from "@/components/AppBar.vue";
 import FooterLayout from "@/components/Footer.vue";
 
 export default {
-  name: "LoginView",
+  name: "FeedView",
   components: {
     AppBar,
     FooterLayout,

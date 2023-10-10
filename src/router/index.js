@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "@/views/public/LoginView.vue";
-import FeedView from "@/views/public/FeedView.vue";
+import FeedView from "@/views/admin/FeedView.vue";
+import ProfileView from "@/views/admin/ProfileView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/",
     name: "Feed",
     component: FeedView,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: ProfileView,
   },
 ];
 
