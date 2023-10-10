@@ -18,7 +18,7 @@
         class="mb-2 centered-input"
         clearable
         label="Email"
-        placeholder="Insira seu RA"
+        placeholder="Insira seu E-mail"
         variant="solo-filled"
         bg-color="rgb(218,255,251)"
       ></v-text-field>
@@ -53,46 +53,6 @@
       </v-btn>
     </v-form>
   </v-card>
-
-  <!-- <v-col cols="5" class="ml-auto mr-auto">
-    <v-form v-model="form" @submit.prevent="onSubmit">
-      <v-text-field
-        v-model="email"
-        :readonly="loading"
-        :rules="[required]"
-        class="mb-2"
-        clearable
-        label="RA"
-      ></v-text-field>
-    </v-form>
-  </v-col>
-
-  <v-col>
-    <v-form v-model="form" @submit.prevent="onSubmit">
-      <v-text-field
-        v-model="password"
-        :readonly="loading"
-        :rules="[required]"
-        clearable
-        label="Senha"
-        placeholder="Enter your password"
-      ></v-text-field>
-    </v-form>
-  </v-col>
-
-  <v-col cols="12">
-    <v-btn
-      :disabled="!form"
-      :loading="loading"
-      block
-      color="success"
-      size="large"
-      type="submit"
-      variant="elevated"
-    >
-      Sign In
-    </v-btn>
-  </v-col> -->
 
   <FooterLayout />
 </template>
@@ -145,11 +105,11 @@ export default {
   background-color: rgb(16, 32, 61);
 }
 .v-text-field.centered-input .v-label {
-  left: 36% !important;
+  left: 38% !important;
   transform: translateX(-50%);
 }
 .v-text-field.centered-input2 .v-label {
-  left: 35% !important;
+  left: 38% !important;
   transform: translateX(-50%);
 }
 </style>
