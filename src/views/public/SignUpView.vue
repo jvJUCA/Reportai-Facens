@@ -17,6 +17,7 @@
             v-model="name"
             :readonly="loading"
             class="mb-2 centered-input"
+            :rules="[rules.requiredName]"
             clearable
             label="Nome"
             placeholder="Insira seu nome completo"
@@ -29,7 +30,8 @@
             v-model="RA"
             class="centered-input2"
             :readonly="loading"
-            :rules="[rules.sizeRA]"
+            :rules="[rules.requiredRA, rules.sizeRA]"
+            type="number"
             name="input-10-1"
             clearable
             label="RA"
@@ -115,14 +117,14 @@ export default {
     email: "",
     RA: "",
     rules: {
+      requiredName: (value) => !!value || "Nome não informado!",
       requiredEmail: (value) => !!value || "Email não informado!",
       requiredPassword: (value) => !!value || "Senha não informada!",
       counter: (value) => value.length <= 20 || "Máximo de 20 caracteres!",
-      requiredRA: (value) => !!value || "O RA é necessario!",
+      requiredRA: (value) => !!value || "RA não informado!",
       sizePassword: (value) =>
-        value.length >= 6 && value.length <= 25 || "Senha inválida",
-      sizeRA: (value) =>
-        value.length == 6|| "RA inválido!",
+        (value.length >= 6 && value.length <= 25) || "Mínimo de 6 caracteres!",
+      sizeRA: (value) => value.length == 6 || "RA inválido!",
       email: (value) => {
         const pattern =
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -154,6 +156,11 @@ export default {
 <style>
 #app {
   background-color: rgb(16, 32, 61);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .v-text-field.centered-input .v-label {
   left: 38% !important;
