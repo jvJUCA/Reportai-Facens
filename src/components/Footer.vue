@@ -5,7 +5,7 @@
       style="height: 10%;"
       class="footer text-center d-flex flex-column"
     >
-      <div>desenvolvido por C&C</div>
+      <div>Desenvolvido por C&C</div>
     </v-footer>
   </v-layout>
 </template>
