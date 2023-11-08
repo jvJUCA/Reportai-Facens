@@ -1,5 +1,6 @@
 import { auth } from '@/firebase'
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '@/firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -51,6 +52,13 @@ export default {
           payload.email,
           payload.password,
         )
+        const docRef = await addDoc(collection(db, "users"), {
+          email: payload.email,
+          accessLevel: 1,
+          myReports: {},
+          mySuggests: {},
+        });
+        console.log("Document written with ID: ", docRef.id);
       } catch (err) {
         console.error('Error when creating user', err)
         commit('setError', err)
@@ -59,15 +67,11 @@ export default {
 
     async signin({ commit }, payload) {
       try {
-        const response = await signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
           auth,
           payload.email,
           payload.password,
         )
-        if (response) {
-          const dbUser = await new UserController().getById(response.user.uid)
-          commit('SET_USER', dbUser)
-        }
       } catch (err) {
         console.error(err)
         if (err.code === 'auth/invalid-email') {
@@ -76,6 +80,7 @@ export default {
           alert('Senha incorreta.')
         } else {
           alert('Usuário ou senha incorretos.')
+                  commit('setError', err)
         }
       }
     },

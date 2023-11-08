@@ -8,10 +8,9 @@
 
 export default class User {
     constructor({
-        id, accessLevel, email, myReports, mySuggests,
+        accessLevel, email, myReports, mySuggests,
     } = {},
     ) {
-        this.id = id
         this.accessLevel = accessLevel
         this.email = email
         this.myReports = myReports
@@ -27,7 +26,6 @@ export default class User {
         return {
             accessLevel: this.accessLevel,
             email: this.email,
-            notifications: this.notifications,
             myReports: this.myReports,
             mySuggests: this.mySuggests,
         }

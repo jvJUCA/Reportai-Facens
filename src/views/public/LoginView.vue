@@ -93,17 +93,10 @@ export default {
       return !!v || "Este campo é necessário";
     },
     async onSignIn() {
-      try {
-        await this.$store.dispatch("signin", {
-          email: this.email,
-          password: this.password,
-        });
-        if (this.$store.getters.user) {
-          this.$router.push("/testslist").catch(() => {});
-        }
-      } catch (error) {
-        console.error("Erro de autenticação:", error);
-      }
+      await this.$store.dispatch("signin", {
+        email: this.email,
+        password: this.password,
+      });
     },
   },
   components: {

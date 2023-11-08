@@ -6,10 +6,6 @@ import {
   getAuth,
   // connectAuthEmulator
 } from "firebase/auth";
-import {
-  getFunctions,
-  // connectFunctionsEmulator
-} from "firebase/functions";
 // import { getStorage } from 'firebase/storage'
 const firebaseConfig = {
   apiKey: "AIzaSyAAb4oxiDaG-zKhdKd1ufJg9OsTlTI6fVQ",
@@ -26,6 +22,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const fbFunctions = getFunctions(app);
-const db = getFirestore();
-export { auth, db, analytics, fbFunctions };
+const db = getFirestore(app);
+export { auth, db, analytics };

@@ -1,56 +1,56 @@
 // imports
-
-import { auth } from '@/firebase'
+import Controller from "./BaseController";
+import { auth } from "@/firebase";
 
 import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-} from 'firebase/auth'
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 export default class AuthController {
-    //Register new users
+  //Register new users
 
-    async authSignUp(email, password) {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                return user
-            })
-            .catch(console.error('Error in SignUp'))
-    }
+  async authSignUp(email, password) {
+    
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+  }
 
-    //SignIn
+  //SignIn
 
-    async authSignIn(email, password) {
-        try {
-            return signInWithEmailAndPassword(auth, email, password).then(
-                (userCredential) => {
-                    const user = userCredential.user
-                    return user
-                },
-            )
-        } catch (e) {
-            console.error(e)
+  async authSignIn(email, password) {
+    try {
+      return signInWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          const user = userCredential.user;
+          return user;
         }
+      );
+    } catch (e) {
+      console.error(e);
     }
+  }
 
-    //Get Current User
+  //Get Current User
 
-    async authGetCurrentUser() {
-        const user = auth.currentUser
-        if (user) {
-            return user
-        } else {
-            console.error('user is null')
-        }
-        return user
+  async authGetCurrentUser() {
+    const user = auth.currentUser;
+    if (user) {
+      return user;
+    } else {
+      console.error("user is null");
     }
+    return user;
+  }
 
-    //SignOut
+  //SignOut
 
-    async authSignOut() {
-        return signOut(auth).then(() => {
-        })
-    }
+  async authSignOut() {
+    return signOut(auth).then(() => {});
+  }
 }
