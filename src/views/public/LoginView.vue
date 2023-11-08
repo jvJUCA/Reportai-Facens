@@ -48,6 +48,7 @@
         type="submit"
         variant="elevated"
         class="mt-2"
+        @click="onSignIn()"
       >
         Entrar
       </v-btn>
@@ -66,7 +67,7 @@ export default {
     loading: false,
     show1: false,
     show2: true,
-    password: null,
+    password: "",
     email: "",
     rules: {
       requiredEmail: (value) => !!value || "Email não informado!",
@@ -90,6 +91,19 @@ export default {
     },
     required(v) {
       return !!v || "Este campo é necessário";
+    },
+    async onSignIn() {
+      try {
+        await this.$store.dispatch("signin", {
+          email: this.email,
+          password: this.password,
+        });
+        if (this.$store.getters.user) {
+          this.$router.push("/testslist").catch(() => {});
+        }
+      } catch (error) {
+        console.error("Erro de autenticação:", error);
+      }
     },
   },
   components: {

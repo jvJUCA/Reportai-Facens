@@ -15,7 +15,7 @@ exports.processSignUp = functions.auth.user().onCreate(async (user) => {
           email: user.email,
           accessLevel: 1,
           myReports: {},
-          mySuggests: {},
+          mySuggests: {}, 
         });
     } catch (err) {
       console.error("Error to create user in database ", err);

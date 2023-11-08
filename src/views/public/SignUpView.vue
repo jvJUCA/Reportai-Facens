@@ -94,6 +94,7 @@
         size="x-large"
         type="submit"
         variant="elevated"
+        @click="onSignUp()"
       >
         Cadastrar
       </v-btn>
@@ -134,6 +135,14 @@ export default {
   }),
 
   methods: {
+  async onSignUp() {
+        await this.$store.dispatch('signup', {
+          email: this.email,
+          password: this.password,
+        })
+
+        this.$router.push('/login')
+    },
     onSubmit() {
       if (!this.form) return;
 

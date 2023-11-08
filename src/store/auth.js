@@ -1,4 +1,5 @@
 import { auth } from '@/firebase'
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -44,7 +45,6 @@ export default {
      */
 
     async signup({ commit }, payload) {
-      commit('setLoading', true)
       try {
         await createUserWithEmailAndPassword(
           auth,
@@ -54,13 +54,10 @@ export default {
       } catch (err) {
         console.error('Error when creating user', err)
         commit('setError', err)
-      } finally {
-        commit('setLoading', false)
       }
     },
 
     async signin({ commit }, payload) {
-      commit('setLoading', true)
       try {
         const response = await signInWithEmailAndPassword(
           auth,
@@ -80,8 +77,6 @@ export default {
         } else {
           alert('Usuário ou senha incorretos.')
         }
-      } finally {
-        commit('setLoading', false)
       }
     },
 
@@ -93,7 +88,6 @@ export default {
         console.error(err)
       } finally {
         //Statements that are executed after the try statement completes. These statements execute regardless of whether an exception was thrown or caught.
-        commit('setLoading', false)
       }
     },
 
