@@ -8,22 +8,53 @@
     >
       <template v-slot:prepend>
         <v-app-bar-nav-icon
+          :class="this.$route.path == '/' ? 'mr-16 ml-16' : 'mr-0 '"
           @click="drawer = !drawer"
           size="x-large"
         ></v-app-bar-nav-icon>
       </template>
 
-      <v-app-bar-title class="ml-0 mr-16">
+      <v-app-bar-title
+        :class="this.$route.path == '/' ? 'mr-0 ml-16' : 'mr-16'"
+      >
         <h1 class="pt-3">Reportaí</h1>
         <img src="@/assets/logo-f.png" alt="" height="50"
       /></v-app-bar-title>
+      <template v-slot:append v-if="this.$route.path == '/'">
+        <v-card
+          @click="$router.push('/profile')"
+          style="cursor: pointer"
+          :class="$route.path == '/' ? 'mr-0 ml-1' : ''"
+          color="#176B87"
+        >
+          <v-row align="center">
+            <v-col cols="12" class="text-center">
+              <div class="d-flex align-center justify-center">
+                <div
+                  class="text-subtitle mr-5 ml-2 font-weight-bold"
+                  style="color: white"
+                >
+                  João Vitor Amaral
+                  <br />
+                  <span class="text-subtitle">236279</span>
+                </div>
+                <v-avatar
+                  color="grey-darken-3"
+                  size="60"
+                  image="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                ></v-avatar>
+              </div>
+            </v-col>
+          </v-row>
+        </v-card>
+      </template>
     </v-app-bar>
 
     <v-navigation-drawer
       elevation="5"
       v-model="drawer"
       temporary
-      color="rgb(16, 32, 81)"
+      color="rgb(16, 32, 61)"
     >
       <v-list-item
         prepend-avatar="https://i0.wp.com/iowa-icon.com/wp-content/uploads/sites/2/2022/12/coming-soon.png?fit=275%2C275&ssl=1"
@@ -34,17 +65,17 @@
 
       <v-list density="compact" nav>
         <v-list-item
-          v-if="this.$route.path != '/'"
-          @click="this.$router.push('/')"
-          prepend-icon="mdi-application"
-          title="Return to Feed"
-          value="Feed"
-        ></v-list-item>
-        <v-list-item
-          @click="this.$router.push('/profile')"
+          @click="$router.push('/profile')"
           prepend-icon="mdi-account"
           title="Profile"
           value="Home"
+        ></v-list-item>
+        <v-list-item
+          v-if="this.$route.path != '/login' && this.$route.path != '/signup'"
+          prepend-icon="mdi-logout"
+          title="Logout"
+          value="Logout"
+          @click="logout()"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-help-circle"
@@ -62,7 +93,7 @@
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
-              @click="this.$router.push('/')"
+              @click="$router.push('/')"
               >Início</v-btn
             >
           </v-col>
@@ -96,6 +127,16 @@ export default {
     return {
       drawer: null,
     };
+  },
+  methods: {
+    async logout() {
+      try {
+        await this.$store.dispatch("logout");
+      } catch {
+        console.log("logout error");
+      }
+      this.$router.push("/login");
+    },
   },
 };
 </script>
