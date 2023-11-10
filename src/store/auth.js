@@ -58,6 +58,8 @@ export default {
         );
         const docRef = await addDoc(collection(db, "users"), {
           email: payload.email,
+          name: payload.name,
+          RA: payload.RA,
           accessLevel: 1,
           myReports: {},
           mySuggests: {},
@@ -94,8 +96,6 @@ export default {
         commit("SET_USER", null);
       } catch (err) {
         console.error(err);
-      } finally {
-        //Statements that are executed after the try statement completes. These statements execute regardless of whether an exception was thrown or caught.
       }
     },
 

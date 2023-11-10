@@ -31,7 +31,7 @@
             <v-col cols="12" class="text-center">
               <div class="d-flex align-center justify-center">
                 <div
-                  class="text-subtitle mr-5 ml-2 font-weight-bold"
+                  class="text-subtitle mr-5 ml-2 font-weight-medium"
                   style="color: white"
                 >
                   João Vitor Amaral
@@ -56,12 +56,6 @@
       temporary
       color="rgb(16, 32, 61)"
     >
-      <v-list-item
-        prepend-avatar="https://i0.wp.com/iowa-icon.com/wp-content/uploads/sites/2/2022/12/coming-soon.png?fit=275%2C275&ssl=1"
-        title="Guest"
-      ></v-list-item>
-
-      <v-divider></v-divider>
 
       <v-list density="compact" nav>
         <v-list-item

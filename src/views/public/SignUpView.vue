@@ -141,6 +141,8 @@ export default {
       await this.$store.dispatch("signup", {
         email: this.email,
         password: this.password,
+        name: this.name,
+        RA: this.RA
       });
       this.$router.push('/login');
     },
