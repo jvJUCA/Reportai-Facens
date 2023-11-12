@@ -8,9 +8,11 @@
 
 export default class User {
     constructor({
-        accessLevel, email, myReports, mySuggests,
+        RA, name, accessLevel, email, myReports, mySuggests,
     } = {},
     ) {
+        this.RA = RA
+        this.name = name
         this.accessLevel = accessLevel
         this.email = email
         this.myReports = myReports
@@ -24,6 +26,8 @@ export default class User {
 
     toFirestore() {
         return {
+            RA: this.RA,
+            name: this.name,
             accessLevel: this.accessLevel,
             email: this.email,
             myReports: this.myReports,

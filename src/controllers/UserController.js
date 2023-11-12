@@ -19,8 +19,20 @@ export default class UserController extends Controller {
   }
 
   async getById(docId) {
-    const res = await super.readOne(COLLECTION, docId)
-    return new User.toUser(Object.assign({ id: res.id }, res.data()))
+    try {
+      console.log(`Fetching data for user ID: ${docId}`);
+      const res = await super.readOne(COLLECTION, docId);
+  
+      if (res.exists) {
+        return new User(Object.assign({ id: res.id }, res.data()));
+      } else {
+        console.warn(`Document with ID ${docId} not found.`);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      throw error;
+    }
   }
 
 }

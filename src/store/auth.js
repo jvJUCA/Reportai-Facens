@@ -1,5 +1,5 @@
 import { auth } from "@/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from "@/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -51,12 +51,15 @@ export default {
 
     async signup({ commit }, payload) {
       try {
-        await createUserWithEmailAndPassword(
+        const userCredential = await createUserWithEmailAndPassword(
           auth,
           payload.email,
           payload.password
         );
-        const docRef = await addDoc(collection(db, "users"), {
+    
+        const userDocRef = doc(db, 'users', userCredential.user.uid);
+    
+        await setDoc(userDocRef, {
           email: payload.email,
           name: payload.name,
           RA: payload.RA,
@@ -64,10 +67,11 @@ export default {
           myReports: {},
           mySuggests: {},
         });
-        console.log("Document written with ID: ", docRef.id);
+    
+        console.log('Document written with ID: ', userCredential.user.uid);
       } catch (err) {
-        console.error("Error when creating user", err);
-        commit("setError", err);
+        console.error('Error when creating user', err);
+        commit('setError', err);
       }
     },
 
@@ -85,8 +89,6 @@ export default {
           commit("setError", err);
         }
       }
-      commit("SET_USER", auth.currentUser);
-      console.log('router.push(/)');
       router.push("/");
     },
 

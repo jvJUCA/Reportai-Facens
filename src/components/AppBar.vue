@@ -34,9 +34,9 @@
                   class="text-subtitle mr-5 ml-2 font-weight-medium"
                   style="color: white"
                 >
-                  João Vitor Amaral
+                  {{ user.name }}
                   <br />
-                  <span class="text-subtitle">236279</span>
+                  <span class="text-subtitle">{{user.RA}}</span>
                 </div>
                 <v-avatar
                   color="grey-darken-3"
@@ -121,6 +121,11 @@ export default {
     return {
       drawer: null,
     };
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user
+    }
   },
   methods: {
     async logout() {
