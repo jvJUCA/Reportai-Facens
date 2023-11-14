@@ -3,6 +3,8 @@ import LoginView from "@/views/public/LoginView.vue";
 import FeedView from "@/views/admin/FeedView.vue";
 import ProfileView from "@/views/admin/ProfileView.vue";
 import SignUpView from "@/views/public/SignUpView.vue";
+import ReportView from '@/views/admin/ReportView.vue';
+import SuggestView from '@/views/admin/SuggestView.vue';
 import { auth } from "@/firebase";
 import UserController from "@/controllers/UserController";
 import store from "@/store";
@@ -38,6 +40,22 @@ const routes = [
     component: SignUpView,
     meta: {
       requiresAuth: false,
+    },
+  },
+  {
+    path: "/report",
+    name: "Report",
+    component: ReportView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/suggest",
+    name: "Suggest",
+    component: SuggestView,
+    meta: {
+      requiresAuth: true,
     },
   },
 ];
