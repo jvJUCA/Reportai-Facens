@@ -1,11 +1,3 @@
-/**
- * Create a User.
- * @param {number} accessLevel - The accessLevel value.
- * @param {string} email - The email value.
- * @param {Object[]} myReports - An array of UserAnswer value.
- * @param {Object[]} mySuggests - An array of UserTest value.
- */
-
 export default class User {
     constructor({
         RA, name, accessLevel, email, myReports, mySuggests,
