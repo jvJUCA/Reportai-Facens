@@ -1,4 +1,7 @@
 import { createStore } from 'vuex'
+import Auth from './auth.js'
+import Reports from './reports.js'
+import Suggests from './suggests.js'
 
 export default createStore({
   state: {
@@ -10,5 +13,8 @@ export default createStore({
   actions: {
   },
   modules: {
+    Auth,
+    Reports,
+    Suggests
   }
 })

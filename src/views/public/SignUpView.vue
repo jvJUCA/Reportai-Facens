@@ -94,6 +94,7 @@
         size="x-large"
         type="submit"
         variant="elevated"
+        @click="onSignUp()"
       >
         Cadastrar
       </v-btn>
@@ -103,10 +104,12 @@
   <FooterLayout />
 </template>
 <script>
+// import { collection, addDoc } from "firebase/firestore";
 import AppBar from "@/components/AppBar.vue";
 import FooterLayout from "@/components/Footer.vue";
+// import { db } from '@/firebase';
 export default {
-  name: "LoginView",
+  name: "SignUpView",
   data: () => ({
     form: false,
     loading: false,
@@ -134,6 +137,15 @@ export default {
   }),
 
   methods: {
+    async onSignUp() {
+      await this.$store.dispatch("signup", {
+        email: this.email,
+        password: this.password,
+        name: this.name,
+        RA: this.RA
+      });
+      this.$router.push('/login');
+    },
     onSubmit() {
       if (!this.form) return;
 
@@ -171,4 +183,3 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translateX(-50%);
 }
 </style>
-

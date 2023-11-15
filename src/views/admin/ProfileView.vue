@@ -10,10 +10,10 @@
         ></v-avatar>
         <v-col>
           <span class="text-h5 mt-3" style="color: white"
-            >João Vitor Amaral</span
+            >{{user.name}}</span
           >
           <br />
-          <span class="text-h6 mt-3" style="color: white">236279</span>
+          <span class="text-h6 mt-3" style="color: white">{{user.RA}}</span>
           <v-card class="ml-4 mr-4 mt-1">
             <span
               class="text-subtitle-1 ml-1 mr-1"
@@ -116,6 +116,11 @@ export default {
   components: {
     AppBar,
     FooterLayout,
+  },
+    computed: {
+    user() {
+      return this.$store.getters.user
+    }
   },
 };
 </script>
