@@ -4,7 +4,8 @@
     <v-row>
       <v-col cols="3" class="ml-5">
         <v-avatar
-          image="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+          v-if="user && user.userAvatar"
+          :image="user.userAvatar"
           size="200"
           class="mt-5"
         ></v-avatar>

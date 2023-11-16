@@ -111,13 +111,5 @@ export default {
 #app {
   background-color: rgb(16, 32, 61);
 }
-.v-text-field.centered-input .v-label {
-  left: 38% !important;
-  transform: translateX(-50%);
-}
-.v-text-field.centered-input2 .v-label {
-  left: 38% !important;
-  transform: translateX(-50%);
-}
 </style>
 

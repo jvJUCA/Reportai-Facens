@@ -1,6 +1,6 @@
 export default class User {
     constructor({
-        RA, name, accessLevel, email, myReports, mySuggests,
+        RA, name, accessLevel, email, myReports, mySuggests, userAvatar
     } = {},
     ) {
         this.RA = RA
@@ -9,6 +9,7 @@ export default class User {
         this.email = email
         this.myReports = myReports
         this.mySuggests = mySuggests
+        this.userAvatar = userAvatar
     }
     static toUser(data) {
         return new User({
@@ -24,6 +25,7 @@ export default class User {
             email: this.email,
             myReports: this.myReports,
             mySuggests: this.mySuggests,
+            userAvatar: this.userAvatar
         }
     }
 }

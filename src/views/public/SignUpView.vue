@@ -174,12 +174,4 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.v-text-field.centered-input .v-label {
-  left: 38% !important;
-  transform: translateX(-50%);
-}
-.v-text-field.centered-input2 .v-label {
-  left: 38% !important;
-  transform: translateX(-50%);
-}
 </style>

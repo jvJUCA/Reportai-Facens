@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { getRandomAvatar } from '@/controllers/AvatarController.js';
 
 /**
  * Auth Store Module
@@ -56,9 +57,12 @@ export default {
           payload.email,
           payload.password
         );
-    
+
+        // Fetch a random avatar URL
+        const randomAvatarUrl = await getRandomAvatar(payload.email);
+
+        // Atualize o documento do usuário com a URL do avatar gerado
         const userDocRef = doc(db, 'users', userCredential.user.uid);
-    
         await setDoc(userDocRef, {
           email: payload.email,
           name: payload.name,
@@ -66,8 +70,9 @@ export default {
           accessLevel: 1,
           myReports: {},
           mySuggests: {},
+          userAvatar: randomAvatarUrl,
         });
-    
+
         console.log('Document written with ID: ', userCredential.user.uid);
       } catch (err) {
         console.error('Error when creating user', err);

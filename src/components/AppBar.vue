@@ -8,23 +8,22 @@
     >
       <template v-slot:prepend>
         <v-app-bar-nav-icon
-          :class="this.$route.path == '/' ? 'mr-16 ml-16' : 'mr-0 '"
+          v-if="$route.path !== '/login' && $route.path !== '/signup'"
+           :class="this.$route.path == '/' ? 'mr-10' : 'mr-0 '"
           @click="drawer = !drawer"
           size="x-large"
         ></v-app-bar-nav-icon>
       </template>
 
       <v-app-bar-title
-        :class="this.$route.path == '/' ? 'mr-0 ml-16' : 'mr-16'"
-      >
+       :class="this.$route.path == '/' ? 'mr-0 ml-16' : 'mr-16'">
         <h1 class="pt-3">Reportaí</h1>
-        <img src="@/assets/logo-f.png" alt="" height="50"
-      /></v-app-bar-title>
-      <template v-slot:append v-if="this.$route.path == '/'">
+        <img src="@/assets/logo-f.png" alt="" height="50" />
+      </v-app-bar-title>
+      <template v-slot:append v-if="$route.path === '/'">
         <v-card
           @click="$router.push('/profile')"
           style="cursor: pointer"
-          :class="$route.path == '/' ? 'mr-0 ml-1' : ''"
           color="#176B87"
         >
           <v-row align="center">
@@ -36,12 +35,13 @@
                 >
                   {{ user.name }}
                   <br />
-                  <span class="text-subtitle">{{user.RA}}</span>
+                  <span class="text-subtitle">{{ user.RA }}</span>
                 </div>
                 <v-avatar
+                  v-if="user.userAvatar"
                   color="grey-darken-3"
                   size="60"
-                  image="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                  :image="user.userAvatar"
                 ></v-avatar>
               </div>
             </v-col>
@@ -57,7 +57,7 @@
       color="rgb(16, 32, 61)"
     >
 
-      <v-list density="compact" nav>
+      <v-list dense nav>
         <v-list-item
           @click="$router.push('/profile')"
           prepend-icon="mdi-account"
@@ -65,11 +65,11 @@
           value="Home"
         ></v-list-item>
         <v-list-item
-          v-if="this.$route.path != '/login' && this.$route.path != '/signup'"
+          v-if="$route.path !== '/login' && $route.path !== '/signup'"
           prepend-icon="mdi-logout"
           title="Logout"
           value="Logout"
-          @click="logout()"
+          @click="logout"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-help-circle"
@@ -82,32 +82,27 @@
     <v-main>
       <v-sheet width="100%" height="100" color="#176B87">
         <v-row>
-          <v-col cols="1"></v-col>
-          <v-col cols="3" class="mt-4">
+          <v-col cols="12" md="4" class="mt-4">
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
               @click="$router.push('/')"
-              >Início</v-btn
-            >
+            >Início</v-btn>
           </v-col>
-          <v-col cols="4" class="mt-4">
+          <v-col cols="12" md="4" class="mt-4">
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
-              @click="this.$router.push('/report')"
-              >Reportar</v-btn
-            >
+              @click="$router.push('/report')"
+            >Reportar</v-btn>
           </v-col>
-          <v-col cols="3" class="mt-4">
+          <v-col cols="12" md="4" class="mt-4">
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
-              @click="this.$router.push('/suggest')"
-              >Sugestão</v-btn
-            >
+              @click="$router.push('/suggest')"
+            >Sugestão</v-btn>
           </v-col>
-          <v-col cols="1"></v-col>
         </v-row>
       </v-sheet>
     </v-main>
