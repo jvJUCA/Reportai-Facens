@@ -1,7 +1,8 @@
 <template>
-  <AppBar />
+  <app-bar></app-bar>
   <div>
     <v-carousel
+      v-if="complaints.length > 0"
       height="350"
       v-model="model"
       show-arrows="hover"
@@ -12,42 +13,54 @@
       <v-carousel-item v-for="(item, index) in carouselItems" :key="index">
         <v-container fill-height>
           <v-row>
-            <v-col v-for="cardIndex in this.cardsPerItem" :key="cardIndex">
+            <v-col
+              v-for="complaint in complaintsByItem(index)"
+              :key="complaint.id"
+            >
               <v-card max-width="400" color="rgb(218,255,251)">
                 <v-card-title>
                   <v-list-item>
                     <template v-slot:prepend>
                       <v-avatar
                         color="grey-darken-3"
-                        image="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                        :image="
+                          complaint.type == 'report'
+                            ? complaint.reportAuthorAvatar
+                            : complaint.suggestAuthorAvatar
+                        "
                       ></v-avatar>
                     </template>
                     <v-list-item-content style="text-align: left !important">
-                      <v-list-item-subtitle>Reportado por</v-list-item-subtitle>
+                      <v-list-item-subtitle>{{
+                        getTypeName(complaint.type)
+                      }}</v-list-item-subtitle>
                       <v-list-item-title class="font-weight-bold">
-                        João Vitor Amaral -
-                        {{ item * this.cardsPerItem + cardIndex }}
+                        {{
+                          complaint.type == "report"
+                            ? complaint.reportAuthorName
+                            : complaint.suggestAuthorName
+                        }}
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-card-title>
-                <!-- <v-img
-                class="white--text align-end"
-                cover
-                src="https://imFFgsapp2.correiobraziliense.com.br/app/noticia_127983242361/2017/11/30/644650/20171130192757388735u.jpg"
-              >
-              </v-img> -->
                 <div class="d-flex align-center justify-center">
                   <v-sheet
                     min-height="200"
                     class="rounded ml-7 mr-7"
-                    color="rgb(204,169,100)"
+                    :color="
+                      complaint.type == 'report'
+                        ? 'rgb(204,169,100)'
+                        : '#66CFC4'
+                    "
                   >
                     <v-card-text style="color: white">
                       <div>
-                        Rapaziada os banheiros não têm acessibilidade para as
-                        pessoas que mais precisam, dito isso vamos reclamar com
-                        o pessoal do design
+                        {{
+                          complaint.type == "report"
+                            ? complaint.reportDescription
+                            : complaint.suggestDescription
+                        }}
                       </div>
                     </v-card-text>
                   </v-sheet>
@@ -68,13 +81,28 @@
         </v-container>
       </v-carousel-item>
     </v-carousel>
+    <div class="d-flex align-center justify-center" style="min-height: 50vh">
+      <v-col cols="12">
+        <span class="text-h4" style="color: #f2f2f2"
+          >Águas calmas por aqui!
+        </span>
+        <br />
+        <span class="text-h6" style="color: #cccccc"
+          >Nenhum problema reportado até agora.
+          <br />
+          <img height="125" src="@/assets/duck.gif" />
+        </span>
+      </v-col>
+    </div>
   </div>
-  <footer-layout />
+  <FooterLayout />
 </template>
 
 <script>
 import AppBar from "@/components/AppBar.vue";
 import FooterLayout from "@/components/Footer.vue";
+import ReportController from "@/controllers/ReportsController";
+import SuggestController from "@/controllers/SuggestsController";
 
 export default {
   name: "FeedView",
@@ -85,7 +113,15 @@ export default {
   data: () => ({
     model: 0,
     cardsPerItem: 3,
+    complaints: [],
   }),
+  async created() {
+    var dbReports = await new ReportController().readAll();
+    var dbSuggests = await new SuggestController().readAll();
+    this.complaints = dbReports.concat(dbSuggests);
+    console.log(this.complaints);
+  },
+
   computed: {
     carouselItems() {
       return Array.from(
@@ -94,7 +130,23 @@ export default {
       );
     },
     totalCards() {
-      return 13;
+      return this.complaints.length;
+    },
+  },
+  methods: {
+    complaintsByItem(itemIndex) {
+      const start = itemIndex * this.cardsPerItem;
+      const end = start + this.cardsPerItem;
+      return this.complaints.slice(start, end);
+    },
+    getTypeName(type) {
+      if (type === "report") {
+        return "Reportado por";
+      } else if (type === "suggest") {
+        return "Sugerido por";
+      }
+      // Adicione mais condições conforme necessário
+      return "";
     },
   },
 };

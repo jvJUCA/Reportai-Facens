@@ -63,6 +63,7 @@ export default {
     async submitReport() {
        try {
         await this.$store.dispatch('submitReport', { reportDescription: this.report });
+        this.$router.push('/');
       } catch (error) {
         console.error('Erro ao despachar a ação submitReport:', error);
       }

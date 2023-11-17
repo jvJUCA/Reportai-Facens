@@ -1,8 +1,8 @@
 import Controller from '@/controllers/BaseController'
-import Report from '@/models/ReportModel'
-const COLLECTION = 'reports'
+import Suggest from '@/models/SuggestModel'
+const COLLECTION = 'suggests'
 
-export default class ReportController extends Controller {
+export default class SuggestController extends Controller {
   constructor() {
     super()
   }
@@ -13,22 +13,22 @@ export default class ReportController extends Controller {
 
   async readAll() {
     const docs = await super.readAll(COLLECTION)
-    return docs.map((doc) => new Report(doc))
+    return docs.map((doc) => new Suggest(doc))
   }
 
   async getById(docId) {
     try {
-      console.log(`Fetching data for report ID: ${docId}`);
+      console.log(`Fetching data for Suggest ID: ${docId}`);
       const res = await super.readOne(COLLECTION, docId);
   
       if (res.exists) {
-        return new Report(Object.assign({ id: res.id }, res.data()));
+        return new Suggest(Object.assign({ id: res.id }, res.data()));
       } else {
         console.warn(`Document with ID ${docId} not found.`);
         return null;
       }
     } catch (error) {
-      console.error("Error fetching report data:", error);
+      console.error("Error fetching Suggest data:", error);
       throw error;
     }
   }

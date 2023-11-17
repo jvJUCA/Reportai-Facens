@@ -41,7 +41,6 @@
   <FooterLayout />
 </template>
 
-
 <script>
 import SaveBtn from "@/components/SaveBtn.vue";
 import AppBar from "@/components/AppBar.vue";
@@ -65,6 +64,7 @@ export default {
         await this.$store.dispatch("submitSuggest", {
           suggestDescription: this.suggest,
         });
+        this.$router.push("/");
       } catch (error) {
         console.error("Erro ao despachar a ação submitSuggest:", error);
       }
@@ -73,5 +73,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

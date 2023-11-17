@@ -1,6 +1,8 @@
 import ReportsController from "@/controllers/ReportsController";
 import { auth, db } from "@/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import store from ".";
+
 
 export default {
   state: {
@@ -29,14 +31,18 @@ export default {
     async submitReport({ commit }, payload) {
       try {
         const userDocId = auth.currentUser.uid;
+        const user = store.getters.user
         const date = Date.now()
 
         await addDoc(collection(db, "reports"), {
           reportAuthorId: userDocId,
+          reportAuthorName: user.name,
+          reportAuthorAvatar: user.userAvatar,
           reportDescription: payload.reportDescription,
           reportPic: '',
           reportVotes : 0,
-          lastUpdate: date
+          lastUpdate: date,
+          type: 'report'
         });
       } catch (err) {
         console.error("Error when creating report", err);

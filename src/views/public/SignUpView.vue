@@ -98,6 +98,14 @@
       >
         Cadastrar
       </v-btn>
+      <div class="mt-3">
+        <span style="color: white">Já tem conta?</span>
+        <a
+          @click="$router.push('/login')"
+          style="cursor: pointer; color: #54a8c4"
+          > Conecte-se</a
+        >
+      </div>
     </v-col>
   </v-row>
 
@@ -142,9 +150,9 @@ export default {
         email: this.email,
         password: this.password,
         name: this.name,
-        RA: this.RA
+        RA: this.RA,
       });
-      this.$router.push('/login');
+      this.$router.push("/login");
     },
     onSubmit() {
       if (!this.form) return;

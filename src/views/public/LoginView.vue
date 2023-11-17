@@ -53,7 +53,11 @@
         Entrar
       </v-btn>
     </v-form>
+    <div class="mt-3">
+    <span style="color: white">Não tem conta?</span> <a @click="$router.push('/signup')" style="cursor: pointer; color: #54a8c4;">Cadastre-se</a>
+    </div>
   </v-card>
+  
 
   <FooterLayout />
 </template>
