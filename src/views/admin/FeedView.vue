@@ -2,7 +2,7 @@
   <app-bar></app-bar>
   <div>
     <v-carousel
-      v-if="complaints.length > 0"
+      v-if="complaints.length > 0 && dataLoaded"
       height="350"
       v-model="model"
       show-arrows="hover"
@@ -81,7 +81,7 @@
         </v-container>
       </v-carousel-item>
     </v-carousel>
-    <div class="d-flex align-center justify-center" style="min-height: 50vh">
+    <div v-if="complaints.length == 0 && dataLoaded" class="d-flex align-center justify-center" style="min-height: 50vh">
       <v-col cols="12">
         <span class="text-h4" style="color: #f2f2f2"
           >Águas calmas por aqui!
@@ -114,11 +114,13 @@ export default {
     model: 0,
     cardsPerItem: 3,
     complaints: [],
+    dataLoaded: false
   }),
   async created() {
     var dbReports = await new ReportController().readAll();
     var dbSuggests = await new SuggestController().readAll();
     this.complaints = dbReports.concat(dbSuggests);
+    this.dataLoaded = true
     console.log(this.complaints);
   },
 
