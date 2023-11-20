@@ -2,9 +2,11 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "@/views/public/LoginView.vue";
 import FeedView from "@/views/admin/FeedView.vue";
 import ProfileView from "@/views/admin/ProfileView.vue";
+import UserProfile from '@/views/admin/UserProfile.vue'
 import SignUpView from "@/views/public/SignUpView.vue";
-import ReportView from '@/views/admin/ReportView.vue';
-import SuggestView from '@/views/admin/SuggestView.vue';
+import ReportView from "@/views/admin/ReportView.vue";
+import SuggestView from "@/views/admin/SuggestView.vue";
+import NotFound from "@/views/public/NotFound.vue";
 import { auth } from "@/firebase";
 import UserController from "@/controllers/UserController";
 import store from "@/store";
@@ -56,6 +58,23 @@ const routes = [
     component: SuggestView,
     meta: {
       requiresAuth: true,
+    },
+  },
+  {
+    path: "/profile/:userId",
+    name: "UserProfile",
+    component: UserProfile,
+    meta: {
+      requiresAuth: true,
+    },
+    props: true,
+  },
+  {
+    path: "/:catchAll(.*)", // Caminho para qualquer coisa não correspondida
+    name: "NotFound",
+    component: NotFound,
+    meta: {
+      requiresAuth: false,
     },
   },
 ];

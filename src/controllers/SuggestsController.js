@@ -18,7 +18,6 @@ export default class SuggestController extends Controller {
 
   async getById(docId) {
     try {
-      console.log(`Fetching data for Suggest ID: ${docId}`);
       const res = await super.readOne(COLLECTION, docId);
   
       if (res.exists) {

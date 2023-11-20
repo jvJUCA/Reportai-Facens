@@ -58,14 +58,13 @@ export default {
           payload.password
         );
 
-        // Fetch a random avatar URL
         const randomAvatarUrl = await getRandomAvatar(payload.email);
 
-        // Atualize o documento do usuário com a URL do avatar gerado
         const userDocRef = doc(db, 'users', userCredential.user.uid);
         await setDoc(userDocRef, {
           email: payload.email,
           name: payload.name,
+          userDescription: '',
           RA: payload.RA,
           accessLevel: 1,
           myReports: {},

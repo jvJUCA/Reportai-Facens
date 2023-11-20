@@ -1,6 +1,6 @@
 import SuggestsController from "@/controllers/SuggestsController";
 import { auth, db } from "@/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import store from ".";
 
 export default {
@@ -30,18 +30,32 @@ export default {
     async submitSuggest({ commit }, payload) {
       try {
         const userDocId = auth.currentUser.uid;
-        const user = store.getters.user
-        const date = Date.now()
+        const user = store.getters.user;
+        const date = Date.now();
+        const userDocRef = doc(db, "users", userDocId);
 
-        await addDoc(collection(db, "suggests"), {
+        const newSuggestRef = await addDoc(collection(db, "suggests"), {
           suggestAuthorId: userDocId,
           suggestAuthorName: user.name,
           suggestAuthorAvatar: user.userAvatar,
           suggestDescription: payload.suggestDescription,
-          suggestPic: '',
-          suggestVotes : 0,
+          suggestPic: "",
+          suggestVotes: 0,
           lastUpdate: date,
-          type:'suggest'
+          type: "suggest",
+        });
+
+        const newSuggestId = newSuggestRef.id;
+
+        await updateDoc(userDocRef, {
+          mySuggests: {
+            ...user.mySuggests,
+            [newSuggestId]: {
+              lastUpdate: date,
+              suggestDescription: payload.suggestDescription,
+              suggestPic: "",
+            },
+          },
         });
       } catch (err) {
         console.error("Error when creating suggest", err);

@@ -10,18 +10,17 @@
           class="mt-5"
         ></v-avatar>
         <v-col>
-          <span class="text-h5 mt-3" style="color: white"
-            >{{user.name}}</span
-          >
+          <span class="text-h5 mt-3" style="color: white">{{ user.name }}</span>
           <br />
-          <span class="text-h6 mt-3" style="color: white">{{user.RA}}</span>
-          <v-card class="ml-4 mr-4 mt-1">
-            <span
-              class="text-subtitle-1 ml-1 mr-1"
-              style="color: rgb(0, 28, 48)"
-              >Análise e Desenvolvimento de sistemas</span
-            >
-          </v-card>
+          <span class="text-h6 mt-3" style="color: white">{{ user.RA }}</span>
+          <v-select
+            class="mt-1"
+            v-model="curso"
+            bg-color="white"
+            :items="courseOptions"
+            rounded="lg"
+            variant="solo-filled"
+          ></v-select>
         </v-col>
       </v-col>
       <v-col cols="8">
@@ -35,11 +34,13 @@
           <v-textarea
             clearable=""
             bg-color="grey-lighten-4"
+            v-model="description"
             no-resize
             rows="3"
             label="QUEM SOU EU"
             variant="outlined"
             class="mx-5 mt-5"
+            counter="150"
           >
           </v-textarea>
           <v-row>
@@ -64,8 +65,7 @@
                   >
                     <v-card-text style="color: white">
                       <div>
-                        Rapaziada os banheiros não têm acessibilidade para as
-                        pessoas que mais precisam...
+                        {{ Object.values(myReports)[0].reportDescription }}
                       </div>
                     </v-card-text>
                   </v-sheet>
@@ -93,8 +93,7 @@
                   >
                     <v-card-text style="color: white">
                       <div>
-                        Rapaziada os banheiros não têm acessibilidade para as
-                        pessoas que mais precisam...
+                        {{ Object.values(mySuggests)[0].suggestDescription }}
                       </div>
                     </v-card-text>
                   </v-sheet>
@@ -106,10 +105,17 @@
       </v-col>
     </v-row>
   </div>
+  <SaveBtn
+    v-if="description !== undefined && curso !== undefined"
+    @click="submitChanges()"
+    :disabled="description.length >= 151"
+    style="position: fixed; bottom: 80px; right: 15px"
+  />
   <FooterLayout />
 </template>
 
 <script>
+import SaveBtn from "@/components/SaveBtn.vue";
 import AppBar from "@/components/AppBar.vue";
 import FooterLayout from "@/components/Footer.vue";
 export default {
@@ -117,11 +123,71 @@ export default {
   components: {
     AppBar,
     FooterLayout,
+    SaveBtn,
   },
-    computed: {
+  data: () => ({
+    myReports: [],
+    mySuggests: [],
+    description: "",
+    curso: "Nenhum curso selecionado!",
+    dataLoaded: false,
+    courseOptions: [
+      "Medicina Veterinária",
+      "Biomedicina",
+      "Enfermagem",
+      "Odontologia",
+      "Psicologia",
+      "Engenharia Agronômica",
+      "Engenharia de Alimentos",
+      "Engenharia Civil",
+      "Engenharia de Computação",
+      "Engenharia Elétrica",
+      "Engenharia Mecânica",
+      "Engenharia Mecatrônica",
+      "Engenharia de Produção",
+      "Engenharia Química",
+      "Análise e Desenvolvimento de Sistemas",
+      "Tecnologia em Banco de Dados",
+      "Tecnologia em Gestão de T.I",
+      "Tecnologia em Jogos Digitais",
+      "Arquitetura e Urbanismo",
+    ],
+  }),
+  async created() {
+    this.loadData();
+  },
+
+  methods: {
+    selectCourse(course) {
+      this.curso = course;
+    },
+    async submitChanges() {
+      try {
+        let payload = {
+          description: this.description,
+          curso: this.curso,
+        };
+        await this.$store.dispatch("submitUserChanges", payload);
+      } catch (error) {
+        console.error("Erro ao despachar a ação submitReport:", error);
+      }
+    },
+    async loadData() {
+      try {
+        this.myReports = this.user.myReports || [];
+        this.mySuggests = this.user.mySuggests || [];
+        this.curso = this.user.userCourse
+        this.description = this.user.userDescription
+        this.dataLoaded = true
+      } catch (err) {
+        console.error("Error loading user data", err);
+      }
+    },
+  },
+  computed: {
     user() {
-      return this.$store.getters.user
-    }
+      return this.$store.getters.user;
+    },
   },
 };
 </script>

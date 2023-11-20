@@ -22,6 +22,7 @@
       </v-app-bar-title>
       <template v-slot:append v-if="$route.path === '/'">
         <v-card
+        class="mr-3"
           @click="$router.push('/profile')"
           style="cursor: pointer"
           color="#176B87"
@@ -70,11 +71,6 @@
           title="Logout"
           value="Logout"
           @click="logout"
-        ></v-list-item>
-        <v-list-item
-          prepend-icon="mdi-help-circle"
-          title="Help & FAQ"
-          value="about"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>

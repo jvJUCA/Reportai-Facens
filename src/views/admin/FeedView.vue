@@ -22,6 +22,8 @@
                   <v-list-item>
                     <template v-slot:prepend>
                       <v-avatar
+                      style="cursor: pointer;"
+                      @click="complaint.type == 'report' ? $router.push(`/profile/${complaint.reportAuthorId}`) : $router.push(`/profile/${complaint.suggestAuthorId}`)"
                         color="grey-darken-3"
                         :image="
                           complaint.type == 'report'
@@ -47,7 +49,7 @@
                 <div class="d-flex align-center justify-center">
                   <v-sheet
                     min-height="200"
-                    class="rounded ml-7 mr-7"
+                    class="rounded ml-7 mr-7 mb-14"
                     :color="
                       complaint.type == 'report'
                         ? 'rgb(204,169,100)'
@@ -65,16 +67,6 @@
                     </v-card-text>
                   </v-sheet>
                 </div>
-
-                <v-card-actions>
-                  <v-btn color="green" icon
-                    ><v-icon color="green">mdi-arrow-up</v-icon>
-                  </v-btn>
-
-                  <v-btn color="red" icon
-                    ><v-icon color="red">mdi-arrow-down</v-icon>
-                  </v-btn>
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
@@ -121,7 +113,6 @@ export default {
     var dbSuggests = await new SuggestController().readAll();
     this.complaints = dbReports.concat(dbSuggests);
     this.dataLoaded = true
-    console.log(this.complaints);
   },
 
   computed: {

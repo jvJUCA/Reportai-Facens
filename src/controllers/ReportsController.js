@@ -18,7 +18,6 @@ export default class ReportController extends Controller {
 
   async getById(docId) {
     try {
-      console.log(`Fetching data for report ID: ${docId}`);
       const res = await super.readOne(COLLECTION, docId);
   
       if (res.exists) {
