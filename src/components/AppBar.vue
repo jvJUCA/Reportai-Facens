@@ -9,20 +9,21 @@
       <template v-slot:prepend>
         <v-app-bar-nav-icon
           v-if="$route.path !== '/login' && $route.path !== '/signup'"
-           :class="this.$route.path == '/' ? 'mr-10' : 'mr-0 '"
+          :class="this.$route.path == '/' ? 'mr-10' : 'mr-0 '"
           @click="drawer = !drawer"
           size="x-large"
         ></v-app-bar-nav-icon>
       </template>
 
       <v-app-bar-title
-       :class="this.$route.path == '/' ? 'mr-0 ml-16' : 'mr-16'">
+        :style="this.$route.path == '/' ? 'margin-left: 20vh' : 'margin-right: 86px'"
+      >
         <h1 class="pt-3">Reportaí</h1>
         <img src="@/assets/logo-f.png" alt="" height="50" />
       </v-app-bar-title>
       <template v-slot:append v-if="$route.path === '/'">
         <v-card
-        class="mr-3"
+          class="mr-3"
           @click="$router.push('/profile')"
           style="cursor: pointer"
           color="#176B87"
@@ -57,7 +58,6 @@
       temporary
       color="rgb(16, 32, 61)"
     >
-
       <v-list dense nav>
         <v-list-item
           @click="$router.push('/profile')"
@@ -83,21 +83,24 @@
               size="x-large"
               color="rgb(16, 32, 61)"
               @click="$router.push('/')"
-            >Início</v-btn>
+              >Início</v-btn
+            >
           </v-col>
           <v-col cols="12" md="4" class="mt-4">
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
               @click="$router.push('/report')"
-            >Reportar</v-btn>
+              >Reportar</v-btn
+            >
           </v-col>
           <v-col cols="12" md="4" class="mt-4">
             <v-btn
               size="x-large"
               color="rgb(16, 32, 61)"
               @click="$router.push('/suggest')"
-            >Sugestão</v-btn>
+              >Sugestão</v-btn
+            >
           </v-col>
         </v-row>
       </v-sheet>
@@ -115,8 +118,8 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.user
-    }
+      return this.$store.getters.user;
+    },
   },
   methods: {
     async logout() {

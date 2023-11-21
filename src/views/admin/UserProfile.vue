@@ -19,7 +19,7 @@
           }}</span>
           <v-card class="ml-4 mr-4 mt-1">
             <span
-            v-if="user"
+              v-if="user"
               class="text-subtitle-1 mx-3 my-3"
               style="color: rgb(0, 28, 48)"
               >{{ user.userCourse }}</span
@@ -71,7 +71,16 @@
                     color="rgb(204,169,100)"
                   >
                     <v-card-text v-if="user" style="color: white">
-                      <div>{{ Object.values(user.myReports)[0].reportDescription }}</div>
+                      <div
+                        v-if="
+                          user &&
+                          user.myReports &&
+                          Object.keys(user.myReports).length > 0
+                        "
+                      >
+                        {{ Object.values(user.myReports)[0].reportDescription }}
+                      </div>
+                      <div v-else>Usuario sem reclamações!</div>
                     </v-card-text>
                   </v-sheet>
                 </div>
@@ -97,7 +106,18 @@
                     color="rgb(100,204,197)"
                   >
                     <v-card-text style="color: white" v-if="user">
-                      <div>{{ Object.values(user.mySuggests)[0].suggestDescription }}</div>
+                      <div
+                        v-if="
+                          user &&
+                          user.mySuggests &&
+                          Object.keys(user.mySuggests).length > 0
+                        "
+                      >
+                        {{
+                          Object.values(user.mySuggests)[0].suggestDescription
+                        }}
+                      </div>
+                      <div v-else>Usuario sem sugestões.</div>
                     </v-card-text>
                   </v-sheet>
                 </div>

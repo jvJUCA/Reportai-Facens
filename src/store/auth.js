@@ -65,6 +65,7 @@ export default {
           email: payload.email,
           name: payload.name,
           userDescription: '',
+          userCourse: 'Nenhum curso selecionado!',
           RA: payload.RA,
           accessLevel: 1,
           myReports: {},

@@ -64,9 +64,10 @@
                     color="rgb(204,169,100)"
                   >
                     <v-card-text style="color: white">
-                      <div>
+                      <div v-if="myReports && Object.keys(myReports).length > 0">
                         {{ Object.values(myReports)[0].reportDescription }}
                       </div>
+                      <div v-else> não tem reports</div>
                     </v-card-text>
                   </v-sheet>
                 </div>
@@ -92,8 +93,11 @@
                     color="rgb(100,204,197)"
                   >
                     <v-card-text style="color: white">
-                      <div>
+                      <div v-if="mySuggests && Object.keys(mySuggests).length > 0">
                         {{ Object.values(mySuggests)[0].suggestDescription }}
+                      </div>
+                      <div v-else>
+                        Não tem suggests
                       </div>
                     </v-card-text>
                   </v-sheet>
@@ -179,6 +183,7 @@ export default {
         this.curso = this.user.userCourse
         this.description = this.user.userDescription
         this.dataLoaded = true
+        console.log(this.user.mySuggests == {} ? 'sim' : 'não');
       } catch (err) {
         console.error("Error loading user data", err);
       }
@@ -188,6 +193,9 @@ export default {
     user() {
       return this.$store.getters.user;
     },
+    hasReports(){
+      return this.user.myReports.length > 0;
+    }
   },
 };
 </script>
